@@ -22,8 +22,9 @@
 	- Provide directions for driving and/or public transport, possibly embedded maps/directions
 	- Primary language will be English, possibly add translation features
 	- Add a user login feature to allow authorized users to contribute media or comments to the website
+	- Implement a photo gallery feature with photo thumbnails
+	- Implement likes and/or comments per photo
 	- Must use Python and Flask framework
-	
 ## Project Deadline
 
 	December 17, 2025
