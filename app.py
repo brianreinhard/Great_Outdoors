@@ -20,14 +20,14 @@ def index():
     return render_template('index.html', users=users)
 
 @app.route('/add', methods=['GET', 'POST'])
-def add_user():
+def register():
     if request.method == 'POST':
         name = request.form['name']
         new_user = User(name=name)
         db.session.add(new_user)
         db.session.commit()
         return redirect(url_for('index'))
-    return render_template('add_user.html')
+    return render_template('register.html')
 
 if __name__ == '__main__':
     app.run(debug=True)
