@@ -96,5 +96,23 @@ def view_users():
     users = User.query.all()
     return render_template('users.html', users=users)
 
+# 👇 MOVE IT HERE
+@app.route('/contact', methods=['GET', 'POST'])
+def contact():
+    if request.method == 'POST':
+        name    = request.form.get('name', '').strip()
+        email   = request.form.get('email', '').strip()
+        message = request.form.get('message', '').strip()
+
+        if not name or not email or not message:
+            flash('Please fill in all fields.', 'error')
+            return redirect(url_for('contact'))
+
+        flash('Thanks for your message! We’ll get back to you soon.', 'success')
+        return redirect(url_for('contact'))
+
+    return render_template('contact.html')
+
+# ⬆️ ABOVE THIS
 if __name__ == '__main__':
     app.run(debug=True)
