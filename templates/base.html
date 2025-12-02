@@ -2,7 +2,10 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Flask User App</title>
+    <title>{% block title %}Flask User App{% endblock %}</title>
+
+    <!-- ✅ Load CSS from static/css/home.css -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}">
 </head>
 <body>
     <h1>Flask User App</h1>
