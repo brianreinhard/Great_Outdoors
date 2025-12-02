@@ -1,46 +1,93 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Welcome to the Great Outdoors!</title>
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/toplevel.css') }}">
-    <script src="{{ url_for('static', filename='scripts/myscripts.js') }}"></script>
-</head>
+{% extends "base.html" %}
+{% block title %}Home - Great Outdoors{% endblock %}
 
-<body>
+{% block extra_head %}
+  <!-- Page-specific CSS -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}">
+{% endblock %}
 
-    <h1>Welcome to the Great Outdoors!</h1>
+{% block content %}
+<div class="home-page">
 
-    <img src="{{ url_for('static', filename='images/outdoors.jpg') }}" alt="Great Outdoors" onmouseover="showAlt(this)" onmouseout="hideAlt(this)">
-    <figcaption>Your Adventure Awaits!</figcaption>
+  <!-- HERO SECTION -->
+  <section class="hero">
+    <!-- TODO: teammate updates this background image in CSS (home.css) -->
+    <div class="hero-overlay">
+      <div class="hero-text">
+        <h1>Great Outdoors</h1>
+        <p>Find your next trail, adventure, and fresh air escape.</p>
+        <a href="#" class="btn-primary">
+          <!-- TODO: teammate sets real link (e.g. url_for('trails')) -->
+          Explore Trails
+        </a>
+      </div>
+    </div>
+  </section>
 
-    <p id="alttext" style="font-size:50px"></p>
+  <!-- NAV / FEATURE STRIP -->
+  <section class="quick-nav">
+    <div class="quick-nav-item">
+      <h3><a href="#">Trails</a></h3>
+      <p>Browse trail difficulty, distance, and elevation.</p>
+    </div>
+    <div class="quick-nav-item">
+      <h3><a href="#">Plan a Trip</a></h3>
+      <p>Get ideas for day hikes and weekend getaways.</p>
+    </div>
+    <div class="quick-nav-item">
+      <h3><a href="#">Contact Us</a></h3>
+      <p>Have questions? Reach out to the team.</p>
+    </div>
+  </section>
 
-    <ul>
-        <li><a href="mountain.html">Climb the Mountain</a></li>
-        <li><a href="forest.html">Wander the Forest</a></li>
-        <li><a href="falls.html">See the Falls</a></li>
-        <li><a href="ferry.html">Ride the Ferry</a></li>
-        <li><a href="lake.html">Walk Around the Lake</a></li>
-        <li><a href="park.html">Read in the Park</a></li>
-    </ul>
-
-    <!-- Add User Link -->
-    <p>
-        <a href="{{ url_for('register') }}">Add New User</a>
+  <!-- HIGHLIGHT CARDS -->
+  <section class="highlights">
+    <h2>Highlights</h2>
+    <p class="highlights-subtitle">
+      A few ways Great Outdoors helps visitors plan their next adventure.
     </p>
-    <!-- Contact US Link -->
-    <p>
-        <a href="/contact">Contact US</a>
-    </p>
 
-    <!-- Optional: Display current users -->
-    <h2>Current Users</h2>
-    <ul>
-        {% for user in users %}
-            <li>{{ user.name }}</li>
-        {% endfor %}
-    </ul>
+    <div class="card-grid">
 
-</body>
-</html>
+      <!-- CARD 1 -->
+      <article class="card">
+        <!-- TODO: teammate replaces image src -->
+        <div class="card-image" style="background-image: url('/static/img/placeholder-trails.jpg');"></div>
+        <div class="card-body">
+          <h3>Featured Trails</h3>
+          <p>See popular hikes with distance, difficulty, and quick details.</p>
+          <a href="#" class="card-link">View trails →</a>
+          <!-- TODO: teammate: set href to real route -->
+        </div>
+      </article>
 
+      <!-- CARD 2 -->
+      <article class="card">
+        <div class="card-image" style="background-image: url('/static/img/placeholder-weather.jpg');"></div>
+        <div class="card-body">
+          <h3>Conditions & Tips</h3>
+          <p>Basic info to help visitors stay safe and prepared outdoors.</p>
+          <a href="#" class="card-link">Learn more →</a>
+        </div>
+      </article>
+
+      <!-- CARD 3 -->
+      <article class="card">
+        <div class="card-image" style="background-image: url('/static/img/placeholder-community.jpg');"></div>
+        <div class="card-body">
+          <h3>Community Picks</h3>
+          <p>Show recommended trails and ideas from other users.</p>
+          <a href="#" class="card-link">See picks →</a>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- FOOTER STRIP -->
+  <section class="footer-strip">
+    <p>© 2025 Great Outdoors · </p>
+  </section>
+
+</div>
+{% endblock %}

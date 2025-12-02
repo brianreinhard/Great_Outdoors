@@ -1,0 +1,193 @@
+.home-page {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  color: #1f2933;
+}
+
+/* HERO SECTION */
+
+.hero {
+  position: relative;
+  min-height: 55vh;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  /* TODO: teammate sets real hero image here */
+  background-image: url("/static/img/placeholder-hero.jpg");
+}
+
+.hero-overlay {
+  background: linear-gradient(
+    to right,
+    rgba(15, 23, 42, 0.85),
+    rgba(15, 23, 42, 0.5)
+  );
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  padding: 3rem 8vw;
+}
+
+.hero-text {
+  max-width: 540px;
+  color: #f9fafb;
+}
+
+.hero-text h1 {
+  font-size: clamp(2.4rem, 3vw, 3.2rem);
+  margin-bottom: 0.75rem;
+}
+
+.hero-text p {
+  font-size: 1.05rem;
+  line-height: 1.5;
+  margin-bottom: 1.5rem;
+}
+
+.btn-primary {
+  display: inline-block;
+  padding: 0.7rem 1.6rem;
+  border-radius: 999px;
+  background-color: #22c55e;
+  color: #052e16;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.btn-primary:hover {
+  background-color: #16a34a;
+}
+
+/* QUICK NAV STRIP */
+
+.quick-nav {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1.5rem;
+  padding: 2.5rem 8vw 2rem;
+  background-color: #f1f5f9;
+}
+
+.quick-nav-item {
+  background: #ffffff;
+  border-radius: 0.75rem;
+  padding: 1.25rem 1.5rem;
+  box-shadow: 0 6px 18px rgba(15, 23, 42, 0.06);
+}
+
+.quick-nav-item h3 {
+  margin: 0 0 0.3rem;
+  font-size: 1.1rem;
+}
+
+.quick-nav-item a {
+  color: #0f766e;
+  text-decoration: none;
+}
+
+.quick-nav-item a:hover {
+  text-decoration: underline;
+}
+
+.quick-nav-item p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #4b5563;
+}
+
+/* HIGHLIGHTS SECTION */
+
+.highlights {
+  padding: 3rem 8vw 3.5rem;
+}
+
+.highlights h2 {
+  font-size: 1.6rem;
+  margin-bottom: 0.4rem;
+}
+
+.highlights-subtitle {
+  margin: 0 0 2rem;
+  color: #6b7280;
+  font-size: 0.95rem;
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.75rem;
+}
+
+.card {
+  background: #ffffff;
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+  display: flex;
+  flex-direction: column;
+  min-height: 260px;
+}
+
+.card-image {
+  height: 150px;
+  background-size: cover;
+  background-position: center;
+}
+
+.card-body {
+  padding: 1.25rem 1.4rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  flex: 1;
+}
+
+.card-body h3 {
+  margin: 0;
+  font-size: 1.05rem;
+}
+
+.card-body p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #4b5563;
+}
+
+.card-link {
+  margin-top: auto;
+  font-size: 0.9rem;
+  color: #2563eb;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.card-link:hover {
+  text-decoration: underline;
+}
+
+/* FOOTER STRIP */
+
+.footer-strip {
+  padding: 1.5rem 8vw 2rem;
+  border-top: 1px solid #e5e7eb;
+  text-align: center;
+  font-size: 0.85rem;
+  color: #6b7280;
+}
+
+/* RESPONSIVE TWEAKS */
+
+@media (max-width: 768px) {
+  .hero-overlay {
+    padding: 2.5rem 1.5rem;
+  }
+
+  .quick-nav {
+    padding-inline: 1.5rem;
+  }
+
+  .highlights {
+    padding-inline: 1.5rem;
+  }
+}
