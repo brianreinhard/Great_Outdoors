@@ -4,10 +4,36 @@
 {% block extra_head %}
   <!-- Page-specific CSS -->
   <link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}">
+  <style>
+    .hero {
+      background-image: linear-gradient(135deg, rgba(34, 87, 50, 0.8), rgba(56, 118, 72, 0.7)), url("{{ url_for('static', filename='static/images/PNW.jpg') }}");
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+    }
+    .top-right-links {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      z-index: 100;
+      display: flex;
+      gap: 15px;
+    }
+    .top-right-links a {
+      padding: 8px 16px;
+      font-size: 14px;
+    }
+  </style>
 {% endblock %}
 
 {% block content %}
 <div class="home-page">
+  <!-- Top Right Links -->
+  <div class="top-right-links">
+    <a href="{{ url_for('register') }}" class="btn-primary">Register</a>
+    <a href="{{ url_for('view_users') }}" class="btn-primary">Users</a>
+    <a href="{{ url_for('contact') }}" class="btn-primary">Contact Us</a>
+  </div>
 
   <!-- HERO SECTION -->
   <section class="hero">
