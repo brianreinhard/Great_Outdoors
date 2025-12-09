@@ -1,29 +1,161 @@
-{% extends 'base.html' %}
-{% block title %}Contact Us{% endblock %}
-
 {% block content %}
-  <h1>Contact Us</h1>
+<style>
+  .contact-container {
+    background-image: url('/static/images/PNW.jpg'); /* Change this path to your image */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+  }
 
-  {% with messages = get_flashed_messages(with_categories=true) %}
-    {% if messages %}
-      <ul class="flashes">
-      {% for category, msg in messages %}
-        <li class="{{ category }}">{{ msg }}</li>
-      {% endfor %}
-      </ul>
-    {% endif %}
-  {% endwith %}
+  .contact-form-wrapper {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 3rem;
+    max-width: 600px;
+    width: 100%;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  }
 
-  <form action="{{ url_for('contact') }}" method="POST">
-    <label for="name">Name:</label><br>
-    <input type="text" id="name"  name="name"    required><br><br>
+  .contact-form-wrapper h1 {
+    color: #2c3e50;
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+  }
 
-    <label for="email">Email:</label><br>
-    <input type="email" id="email" name="email"   required><br><br>
+  .contact-subtitle {
+    color: #7f8c8d;
+    margin-bottom: 2rem;
+    font-size: 1.1rem;
+  }
 
-    <label for="message">Message:</label><br>
-    <textarea id="message" name="message" rows="5" required></textarea><br><br>
+  .flashes {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 1.5rem;
+  }
 
-    <button type="submit">Submit</button>
-  </form>
+  .flashes li {
+    padding: 1rem;
+    border-radius: 10px;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+  }
+
+  .flashes li.success {
+    background: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+  }
+
+  .flashes li.error {
+    background: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+  }
+
+  .form-group {
+    margin-bottom: 1.5rem;
+  }
+
+  .form-group label {
+    display: block;
+    color: #2c3e50;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .form-group input,
+  .form-group textarea {
+    width: 100%;
+    padding: 0.9rem 1rem;
+    border: 2px solid #e0e0e0;
+    border-radius: 10px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    font-family: inherit;
+    box-sizing: border-box;
+  }
+
+  .form-group input:focus,
+  .form-group textarea:focus {
+    outline: none;
+    border-color: #3498db;
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+  }
+
+  .form-group textarea {
+    resize: vertical;
+    min-height: 120px;
+  }
+
+  .submit-btn {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    padding: 1rem 2.5rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 100%;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  .submit-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+  }
+
+  .submit-btn:active {
+    transform: translateY(0);
+  }
+</style>
+
+<div class="contact-container">
+  <div class="contact-form-wrapper">
+    <h1>Contact Us</h1>
+    <p class="contact-subtitle">We'd love to hear from you!</p>
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        <ul class="flashes">
+        {% for category, msg in messages %}
+          <li class="{{ category }}">{{ msg }}</li>
+        {% endfor %}
+        </ul>
+      {% endif %}
+    {% endwith %}
+
+    <form action="{{ url_for('contact') }}" method="POST">
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" required>
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required>
+      </div>
+
+      <div class="form-group">
+        <label for="message">Message</label>
+        <textarea id="message" name="message" rows="5" required></textarea>
+      </div>
+
+      <button type="submit" class="submit-btn">Send Message</button>
+    </form>
+  </div>
+</div>
 {% endblock %}
