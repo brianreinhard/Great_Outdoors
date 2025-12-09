@@ -2,14 +2,13 @@
   <!-- Page-specific CSS -->
   <link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}">
   <style>
-    .hero {
+        .hero {
       background-image: url('/static/images/PNW.jpg');
       background-position: center center;
       background-size: cover;
       background-repeat: no-repeat;
-      height: 100vh;
+      height: 80vh;
       position: relative;
-      margin-bottom: 0;
     }
     .top-right-links {
       position: absolute;
@@ -22,14 +21,6 @@
     .top-right-links a {
       padding: 8px 16px;
       font-size: 14px;
-    }
-    /* Add spacing after hero to prevent overlap */
-    .quick-nav {
-      margin-top: 60px;
-    }
-    .highlights {
-      margin-top: 80px;
-      padding-top: 40px;
     }
   </style>
 {% endblock %}
